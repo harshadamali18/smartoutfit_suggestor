@@ -1,0 +1,51 @@
+       
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Outfit Suggestor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="theme2">
+
+    <div class="theme-switcher">
+        <button type="button" onclick="setTheme('theme1')">💜 Purple</button>
+        <button type="button" onclick="setTheme('theme2')">🩷 Cherry</button>
+        <button type="button" onclick="setTheme('theme3')">🤍 Ocean</button>
+    </div>
+
+    <div class="container glass">
+        <h1>👗 Smart Outfit Suggestor</h1>
+
+        <form action="/weather" method="POST">
+            <input type="text" name="city" placeholder="Enter your city" required>
+            <button type="submit">Get Suggestion</button>
+        </form>
+
+        <div class="content">
+            {% if weather %}
+            <div class="weather-box">
+                <h3>🌤️ Weather: {{ weather }}</h3>
+                <p>{{ weather }}</p>
+            </div>
+            {% endif %} 
+            
+            {% if outfit %}
+            <div class="outfit-box">
+                <h2>🌟 Your Outfit Suggestion</h2>
+                <p class="highlight">{{ outfit }}</p>
+
+                <a href="http://www.myntra.com" target="_blank" class="shop-btn">🛍️ Shop Outfits</a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script>
+        function setTheme(theme) {
+            document.body.className = theme;
+        }
+    </script>    
+</body>
+</html>
