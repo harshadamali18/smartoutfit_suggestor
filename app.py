@@ -2,11 +2,11 @@ from flask import Flask, render_template, request
 import requests
 import os
 
-app = Flask(__name__, template_folder='templates')
+app = Flask(__name__)
 
 def get_weather(city):
     try:
-        url = f"https://wttr.in/{city}?format=j1"
+        url = f"https://wttr.in/pune?format=j1"
         response = requests.get(url)
         data = response.json()
 
