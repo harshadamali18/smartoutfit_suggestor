@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import os
 
-app = Flask(__name__, template_folder='D:\FLASK\templates')
+app = Flask(__name__)
 
 def get_weather(city):
     try:
